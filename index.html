@@ -71,7 +71,18 @@ const errorMsg = document.createElement("div");
   errorMsg.style.display = "none";
 
   divheader.appendChild(errorMsg);
-
+ const validateInput = (text) => {
+    if (!text.trim()) {
+      return "Task cannot be empty.";
+    }
+    if (!isNaN(text.trim()[0])) {
+      return "Task cannot start with a number.";
+    }
+    if (text.trim().length < 5) {
+      return "Task must be at least 5 characters.";
+    }
+    return null;
+  };
 
 
 
