@@ -23,7 +23,19 @@
   title.style.fontWeight = "bold";
     body.appendChild(title);
   const divheader = document.createElement("div");
-
+  Object.assign(divheader.style, {
+    border: "1px solid #ccc",
+    padding: "20px",
+    backgroundColor: "#fff",
+    borderRadius: "8px",
+    width: "80%",
+    margin: "auto",
+    boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    gap: "10px"
+  });
 </script>
 
 
