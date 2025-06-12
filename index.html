@@ -146,21 +146,23 @@ const All = document.createElement("button");
 
   All.onclick = () => {
   Filter = 'all';
-    updateTaskVisibility();
-    updateActiveTab();
-  };
+  updateClick();
+  updateTask();
 
+  };
 
   Done.onclick = () => {
     Filter = 'done';
+    updateClick();
     updateTask();
-    updateActiveTab();
+ 
   };
 
   Todo.onclick = () => {
    Filter = 'todo';
+   updateClick();
     updateTask();
-    updateActiveTab();
+
   };
 
 
