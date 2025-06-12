@@ -177,7 +177,23 @@ const updateClick=() =>{
     } 
   };
 
+const updateTask=()=> {
+    const tasks = container.querySelectorAll("div > div");
+    tasks.forEach(task => {
+      if (task.contains(buttonContainer)) return;
 
+      const checkbox = task.querySelector("input[type='checkbox']");
+      if (!checkbox) return;
+
+      if (Filter === 'all') {
+        task.style.display = 'flex';
+      } else if (Filter === 'done') {
+        task.style.display = checkbox.checked ? 'flex' : 'none';
+      } else {
+        task.style.display = checkbox.checked ? 'none' : 'flex';
+      }
+    });
+  }
 
 </script>
 
