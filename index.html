@@ -166,7 +166,16 @@ const All = document.createElement("button");
   };
 
 
+const updateClick=() =>{
+    [All, Done, Todo].forEach(tab => {
+      tab.style.backgroundColor = "#0097b2";
+      tab.style.color = "white";
+    });
 
+    if (Filter === 'all' ||  Filter === 'done' || Filter === 'todo') {
+      All.style.backgroundColor = "#007b8a";
+    } 
+  };
 
 
 
