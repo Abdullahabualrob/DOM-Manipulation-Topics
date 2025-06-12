@@ -125,6 +125,23 @@ const All = document.createElement("button");
   Done.textContent = "Done";
   Todo.textContent = "Todo";
 
+  [All, Done, Todo].forEach(item => {
+    Object.assign(item.style, {
+      backgroundColor: "#0097b2",
+      color: "white",
+     flex: "1",
+      textAlign: "center",
+      padding: "10px 0",
+      border:"none" ,
+      borderRadius: "3px",
+      cursor: "pointer",
+      fontWeight: "bold",
+      boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
+      fontSize:"17px",
+    });
+    TodoList.appendChild(item);
+  });
+
 
 </script>
 
