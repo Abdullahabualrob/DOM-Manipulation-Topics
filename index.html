@@ -227,7 +227,14 @@ label.style.paddingLeft = "10px";
     const controls = document.createElement('div');
 controls.style.display = 'flex';
     controls.style.alignItems = 'center';
+controls.style.gap = '10px';
+checkbox.type = 'checkbox';
+checkbox.onchange = () => {
+      saveTasksToStorage();
+      updateTaskVisibility();
+    };
 
+    const editIcon = document.createElement('i');
 
 }
 
