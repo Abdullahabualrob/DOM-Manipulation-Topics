@@ -230,11 +230,17 @@ controls.style.display = 'flex';
 controls.style.gap = '10px';
 checkbox.type = 'checkbox';
 checkbox.onchange = () => {
-      saveTasksToStorage();
-      updateTaskVisibility();
+      saveTasks();
+      updateTask();
     };
 
     const editIcon = document.createElement('i');
+editIcon.className = 'fas fa-pencil-alt';
+    editIcon.style.color = '#f0ad4e';
+    editIcon.style.cursor = 'pointer';
+
+
+
 
 }
 
