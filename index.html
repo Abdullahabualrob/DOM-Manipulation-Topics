@@ -294,7 +294,15 @@ Object.assign(deleteDone.style, {
 }); 
 const deleteAll = document.createElement('button');
 deleteAll.textContent = 'Delete All Tasks';
-
+Object.assign(deleteAll.style, {
+  backgroundColor: '#dc3545',
+  border: 'none',
+  color: 'white',
+  padding: '10px',
+  flex: '1',
+  cursor: 'pointer',
+  borderRadius: '4px'
+});
 
 
 
