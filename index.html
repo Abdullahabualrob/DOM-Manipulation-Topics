@@ -268,7 +268,11 @@ return taskDiv;
 addButton.onclick = () => {
     const value = input.value.trim();
     const error = validateInput(value);
-
+  if (error) {
+      errorMsg.textContent = error;
+      errorMsg.style.display = "block";
+      return;
+    }
 
 
 
