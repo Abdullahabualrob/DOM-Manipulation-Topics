@@ -265,7 +265,9 @@ editIcon.onclick = () => {
 taskDiv.appendChild(controls);
 return taskDiv;
   }
-
+addButton.onclick = () => {
+    const value = input.value.trim();
+    const error = validateInput(value);
 
 
 
