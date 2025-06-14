@@ -238,7 +238,18 @@ checkbox.onchange = () => {
 editIcon.className = 'fas fa-pencil-alt';
     editIcon.style.color = '#f0ad4e';
     editIcon.style.cursor = 'pointer';
-
+editIcon.onclick = () => {
+      const newText = prompt("Edit your task:", label.textContent);
+      if (newText !== null) {
+        const error = validateInput(newText);
+        if (error) {
+          alert(error);
+        } else {
+          label.textContent = newText.trim();
+          saveTasks();
+        }
+      }
+    };
 
 
 
