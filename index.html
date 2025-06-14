@@ -254,7 +254,10 @@ editIcon.onclick = () => {
    deleteIcon.className = 'fas fa-trash';
     deleteIcon.style.color = '#d9534f';
     deleteIcon.style.cursor = 'pointer'; 
-
+    deleteIcon.onclick = () => {
+      taskDiv.remove();
+      saveTasks();
+    };
 
 
 
