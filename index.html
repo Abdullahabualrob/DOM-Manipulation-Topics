@@ -305,7 +305,15 @@ Object.assign(deleteAll.style, {
 });
 deleteAll.onclick = () => {
     const tasks = container.querySelectorAll("div > div");
+if (  tasks.length === 1) {
+      alert("No tasks to delete");
+      return;
+    }
 
+
+
+
+    
 
 
 </script>
