@@ -322,7 +322,13 @@ deleteDone.onclick = () => {
       alert("No completed tasks to delete");
       return;
     }
-
+tasksDone.forEach(task => {
+     task.closest("div").remove();
+      
+});
+   
+    saveTasks();
+  };
     
 
 
