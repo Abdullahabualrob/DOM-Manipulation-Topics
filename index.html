@@ -316,7 +316,12 @@ if (  tasks.length === 1) {
     });
     saveTasks();
   };
-
+deleteDone.onclick = () => {
+    const tasksDone = container.querySelectorAll("input[type='checkbox']:checked");
+    if (tasksDone.length === 0) {
+      alert("No completed tasks to delete");
+      return;
+    }
 
     
 
