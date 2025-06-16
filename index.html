@@ -309,7 +309,11 @@ if (  tasks.length === 1) {
       alert("No tasks to delete");
       return;
     }
-
+     tasks.forEach(task => {
+      if (!task.contains(buttonContainer)) {
+        task.remove();
+      }
+    });
 
 
 
