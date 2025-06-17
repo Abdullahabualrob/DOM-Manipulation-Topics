@@ -285,7 +285,14 @@ return taskDiv;
 
   localStorage.setItem("tasks", JSON.stringify(tasksToSave));
 };
+const savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
+savedTasks.forEach(task => {
+  const item = createTaskItem(task.text);
+  const checkbox = item.querySelector("input[type='checkbox']");
+  checkbox.checked = task.done;
+  container.appendChild(item);
+});
 addButton.onclick = () => {
     const value = input.value.trim();
     const error = validateInput(value);
