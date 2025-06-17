@@ -348,19 +348,32 @@ if (  tasks.length === 1) {
     });
     saveTasks();
   };
-deleteDone.onclick = () => {
-    const tasksDone = container.querySelectorAll("input[type='checkbox']:checked");
-    if (tasksDone.length === 0) {
-      alert("No completed tasks to delete");
-      return;
+  deleteDone.onclick = () => {
+  
+  const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+  const remainingTasks = tasks.filter(task => !task.done);
+
+ 
+  localStorage.setItem("tasks", JSON.stringify(remainingTasks));
+
+  const taskElements = container.querySelectorAll("div > div");
+  taskElements.forEach(task => {
+    if (!task.contains(buttonContainer)) {
+      task.remove();
     }
-tasksDone.forEach(task => {
-     task.closest("div").remove();
-      
-});
-   
-    saveTasks();
-  };
+  });
+
+ 
+  remainingTasks.forEach(task => {
+    const item = createTaskItem(task.text);
+    const checkbox = item.querySelector("input[type='checkbox']");
+    checkbox.checked = task.done;
+    container.insertBefore(item, buttonContainer);
+  });
+
+  updateTask(); 
+};
     buttonContainer.appendChild(deleteDone);
   buttonContainer.appendChild(deleteAll);
   container.appendChild(buttonContainer);
