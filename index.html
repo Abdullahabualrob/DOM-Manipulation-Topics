@@ -265,6 +265,27 @@ editIcon.onclick = () => {
 taskDiv.appendChild(controls);
 return taskDiv;
   }
+  const saveTasks = () => {
+  const taskElements = container.querySelectorAll("div > div");
+  const tasksToSave = [];
+
+  taskElements.forEach(task => {
+    if (task.contains(buttonContainer)) return; 
+
+    const labelDiv = task.querySelector("div");
+    const checkbox = task.querySelector("input[type='checkbox']");
+
+    if (!labelDiv || !checkbox) return; 
+
+    const label = labelDiv.textContent;
+    const done = checkbox.checked;
+
+    tasksToSave.push({ text: label, done });
+  });
+
+  localStorage.setItem("tasks", JSON.stringify(tasksToSave));
+};
+
 addButton.onclick = () => {
     const value = input.value.trim();
     const error = validateInput(value);
@@ -277,6 +298,10 @@ errorMsg.style.display = "none";
     const item = createTaskItem(value);
     container.insertBefore(item, buttonContainer);
     input.value = "";
+  }; 
+
+
+
      const buttonContainer = document.createElement('div');
         buttonContainer.style.display = 'flex';
   buttonContainer.style.gap = '10px';
