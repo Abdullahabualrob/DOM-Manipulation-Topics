@@ -228,7 +228,9 @@ label.style.paddingLeft = "10px";
 controls.style.display = 'flex';
     controls.style.alignItems = 'center';
 controls.style.gap = '10px';
-checkbox.type = 'checkbox';
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+
 checkbox.onchange = () => {
       saveTasks();
       updateTask();
@@ -293,21 +295,6 @@ savedTasks.forEach(task => {
   checkbox.checked = task.done;
   container.appendChild(item);
 });
-addButton.onclick = () => {
-    const value = input.value.trim();
-    const error = validateInput(value);
-  if (error) {
-      errorMsg.textContent = error;
-      errorMsg.style.display = "block";
-      return;
-    }
-errorMsg.style.display = "none";
-    const item = createTaskItem(value);
-    container.insertBefore(item, buttonContainer);
-    input.value = "";
-  }; 
-
-
 
      const buttonContainer = document.createElement('div');
         buttonContainer.style.display = 'flex';
@@ -374,11 +361,26 @@ if (  tasks.length === 1) {
 
   updateTask(); 
 };
-    buttonContainer.appendChild(deleteDone);
+buttonContainer.appendChild(deleteDone);
   buttonContainer.appendChild(deleteAll);
   container.appendChild(buttonContainer);
-body.appendChild(container);
 
+body.appendChild(container);
+  addButton.onclick = () => {
+    const value = input.value.trim();
+    const error = validateInput(value);
+  if (error) {
+      errorMsg.textContent = error;
+      errorMsg.style.display = "block";
+      return;
+    }
+errorMsg.style.display = "none";
+    const item = createTaskItem(value);
+    container.insertBefore(item, buttonContainer);
+    input.value = "";
+     saveTasks();
+    updateTask();
+  }; 
  
 
 </script>
